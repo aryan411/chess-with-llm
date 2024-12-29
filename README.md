@@ -2,11 +2,9 @@
 
 Welcome to the React Chess Game repository! This chess game is a modern, responsive web application built using React and TypeScript. Aimed at providing a seamless chess-playing experience, it's perfect for both beginners and seasoned players who want to enjoy a game of chess on-the-go or from the comfort of their browser.
 
-
-
 ## Demo
 
-Experience the live demo: [Play Chess Now]()
+Experience the live demo: [Play Chess Now](https://aryan411.github.io/chess-with-llm/)
 
 ## Features
 
@@ -28,16 +26,16 @@ npm install npm@latest -g
 ### Installation
 
 1. Clone the repository:
-git clone https://github.com/aryan411/chess-with-llm
+   git clone https://github.com/aryan411/chess-with-llm
 
 2. Navigate to the project directory:
-cd react-chess-game
+   cd react-chess-game
 
 3. Install the project dependencies:
-npm install
+   npm install
 
 4. Start the development server:
-npm start
+   npm start
 
 This will run the app in the development mode. Open http://localhost:3000 to view it in your browser.
 
