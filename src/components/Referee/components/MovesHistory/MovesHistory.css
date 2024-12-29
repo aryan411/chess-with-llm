@@ -1,0 +1,44 @@
+.movesContainer {
+    max-height: 400px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 300px;
+  }
+  
+  .movesTable {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+  
+  .tableHeader {
+    position: sticky;
+    top: 0;
+    background-color: #779556;
+    border-bottom: 2px solid #ccc;
+  }
+  
+  .headerCell {
+    padding: 8px;
+    text-align: center;
+    color: #ebecd0;
+  }
+  
+  .tableRow {
+    background-color: #ebecd0;
+  }
+  
+  .tableRow:hover {
+    background-color: #d1d2b8;
+  }
+  
+  .evenRow {
+    background-color: #ffffff;
+  }
+  
+  .tableCell {
+    padding: 8px;
+    text-align: center;
+    color: #000000;
+  }
