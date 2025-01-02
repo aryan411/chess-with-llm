@@ -18,15 +18,15 @@ import MovesHistory from "./components/MovesHistory/MovesHistory";
 import useCurrentMoves from "./hooks/useCurrentMoves";
 import "./Referee.css";
 const moveSound = new Howl({
-  src: ["/sounds/move-self.mp3"],
+  src: ["assets/sounds/move-self.mp3"],
 });
 
-// const captureSound = new Howl({
-//   src: ["/sounds/capture.mp3"],
-// });
+const captureSound = new Howl({
+  src: ["assets/sounds/capture.mp3"],
+});
 
 const checkmateSound = new Howl({
-  src: ["/sounds/move-check.mp3"],
+  src: ["/assets/sounds/move-check.mp3"],
 });
 
 export default function Referee() {
@@ -69,7 +69,7 @@ export default function Referee() {
 
     // If the destination is the same as the initial position of a piece then the piece is captured
     const capturedPiece = board.pieces.find((p) => p.samePosition(destination));
-    
+
     // playMove modifies the board thus we
     // need to call setBoard
     setBoard(() => {
@@ -82,8 +82,9 @@ export default function Referee() {
         playedPiece,
         destination
       );
-
-      if (playedMoveIsValid) {
+      if (capturedPiece) {
+        captureSound.play();
+      } else if (playedMoveIsValid) {
         moveSound.play();
       }
 
@@ -247,7 +248,7 @@ export default function Referee() {
       }`}
     >
       {/* put this div and MovesHistory in a flex column */}
-      <div className="" >
+      <div className="">
         <p
           className={board.totalTurns % 2 === 1 ? "color-black" : "color-white"}
           style={{
