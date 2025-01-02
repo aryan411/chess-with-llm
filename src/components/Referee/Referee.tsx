@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { initialBoard } from "../../Constants";
 import { Piece, Position } from "../../models";
 import { Board } from "../../models/Board";
@@ -43,7 +43,6 @@ export default function Referee() {
   // It also sets the promotion modal to show if the move is a promotion
   // It also sets the promotion pawn to the piece that is being promoted
   function playMove(playedPiece: Piece, destination: Position): boolean {
-    // console.log(playedPiece, destination);
     // If the playing piece doesn't have any moves return
     if (playedPiece.possibleMoves === undefined) return false;
 
@@ -83,15 +82,10 @@ export default function Referee() {
         playedPiece,
         destination
       );
-      debugger;
 
-      if(capturedPiece) {
-        captureSound.play();
-      }
-      else if (playedMoveIsValid) {
+      if (playedMoveIsValid) {
         moveSound.play();
       }
-     
 
       if (clonedBoard.winningTeam !== undefined) {
         checkmateModalRef.current?.classList.remove("hidden");
@@ -104,7 +98,6 @@ export default function Referee() {
     // This is for promoting a pawn
     let promotionRow = playedPiece.team === TeamType.OUR ? 7 : 0;
 
-    // If the destination is the promotion row and the piece is a pawn
     if (destination.y === promotionRow && playedPiece.isPawn) {
       modalRef.current?.classList.remove("hidden");
       setPromotionPawn((previousPromotionPawn) => {
@@ -119,8 +112,6 @@ export default function Referee() {
     }
     return playedMoveIsValid;
   }
-  // Create the function which store the user's moves in  n x 2 array each row[0] is white move and row[1] is black move store the move in this standard format like e4, q4, e5, q5, qxe4, kxqe4 etc.
-  // which i'll call in playMove function if it's a valid move
 
   function isEnPassantMove(
     initialPosition: Position,

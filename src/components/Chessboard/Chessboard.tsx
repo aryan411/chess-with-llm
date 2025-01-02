@@ -29,7 +29,6 @@ export default function Chessboard({playMove, pieces} : Props) {
   // It also moves the piece to the position of the mouse
   // It also sets the active piece to null
   function grabPiece(e: React.MouseEvent) {
-    // console.log("grabPiece");
     const element = e.target as HTMLElement;
     const chessboard = chessboardRef.current;
     if (element.classList.contains("chess-piece") && chessboard) {
@@ -55,7 +54,6 @@ export default function Chessboard({playMove, pieces} : Props) {
   // It also checks if the piece is in the constraints of the chessboard
   // If the piece is not in the constraints of the chessboard, it moves the piece to the constraints
   function movePiece(e: React.MouseEvent) {
-    // console.log("movePiece");
     const chessboard = chessboardRef.current;
     if (activePiece && chessboard) {
       const minX = chessboard.offsetLeft - 25;
@@ -100,18 +98,16 @@ export default function Chessboard({playMove, pieces} : Props) {
   // It also checks if the piece is in the constraints of the chessboard
   // If the piece is not in the constraints of the chessboard, it moves the piece to the constraints
   function dropPiece(e: React.MouseEvent) {
-    // console.log("dropPiece");
     const chessboard = chessboardRef.current;
     if (activePiece && chessboard) {
       const x = Math.floor((e.clientX - chessboard.offsetLeft) / GRID_SIZE);
       const y = Math.abs(
         Math.ceil((e.clientY - chessboard.offsetTop - 800) / GRID_SIZE)
       );
-     
+
       const currentPiece = pieces.find((p) =>
         p.samePosition(grabPosition)
       );
-      // console.log(x, y, grabPosition,currentPiece, activePiece);
 
       if (currentPiece) {
         var succes = playMove(currentPiece.clone(), new Position(x, y));

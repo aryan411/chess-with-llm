@@ -27,22 +27,16 @@ export default function Tile({ number, image, highlight, position }: Props) {
     .join(" ");
   // console.log(position);
   return (
-    <>
-      {/* <div className="position-wrapper"> */}
-       
-
-        <div className={className}>
-        {/* <div className="position-label top-left">
+    <div className={className}>
+      {/* <div className="position-label top-left">
           {position.split(",").join("")}
         </div> */}
-          {image && (
-            <div
-              style={{ backgroundImage: `url(${image})` }}
-              className="chess-piece"
-            ></div>
-          )}
-        </div>
-      {/* </div> */}
-    </>
+      {image && (
+        <div
+          style={{ backgroundImage: `url(${image})` }}
+          className="chess-piece"
+        ></div>
+      )}
+    </div>
   );
 }
