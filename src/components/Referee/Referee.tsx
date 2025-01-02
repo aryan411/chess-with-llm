@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { initialBoard } from "../../Constants";
 import { Piece, Position } from "../../models";
 import { Board } from "../../models/Board";
@@ -21,9 +21,9 @@ const moveSound = new Howl({
   src: ["/sounds/move-self.mp3"],
 });
 
-const captureSound = new Howl({
-  src: ["/sounds/capture.mp3"],
-});
+// const captureSound = new Howl({
+//   src: ["/sounds/capture.mp3"],
+// });
 
 const checkmateSound = new Howl({
   src: ["/sounds/move-check.mp3"],
